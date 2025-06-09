@@ -253,6 +253,67 @@
             text-align: center;
             position: relative;
         }
+        @media (max-width: 768px) {
+    .hero-section {
+        margin-top: 80px;  /* Keep navbar clearance */
+        padding-top: 20px; /* Reduced from 30px */
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+        line-height: 1.1;
+        margin-top: 10px;   /* Reduced gap */
+        margin-bottom: 15px; /* Tighter spacing */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .hero-content {
+        padding: 20px 5%;   /* Less padding */
+        gap: 1.5rem;       /* Smaller gap between text and image */
+    }
+
+    .hero-text p {
+        margin-bottom: 1.5rem; /* Reduced from 2rem */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        margin-top: 80px;
+        padding-top: 15px;  /* Minimal top padding */
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem;  /* Slightly larger than 1.7rem */
+        line-height: 1.2;
+        margin-top: 15px;   /* Much less than 30px */
+        margin-bottom: 10px; /* Tight spacing */
+        padding-top: 0;     /* Remove extra padding */
+    }
+
+    .hero-content {
+        padding: 15px 3%;   /* Minimal padding */
+        gap: 1rem;          /* Very tight gap */
+        margin-top: 10px;   /* Much less than 30px */
+    }
+
+    .hero-text p {
+        margin-bottom: 1rem; /* Tight paragraph spacing */
+        font-size: 1rem;     /* Slightly smaller text */
+    }
+
+    .cta-button {
+        margin-top: 1rem;   /* Less button spacing */
+        padding: 12px 25px; /* Smaller button */
+        font-size: 1rem;    /* Smaller text */
+    }
+
+    .image-carousel {
+        height: 220px;      /* Smaller image height */
+        margin-top: 15px;   /* Less spacing above image */
+    }
+}
 
         .image-carousel {
             position: relative;
