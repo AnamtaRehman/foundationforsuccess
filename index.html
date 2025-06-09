@@ -1,0 +1,2268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--meta tags-->
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="Foundation for Success - Premier coaching institute for academic excellence">
+    <meta name="keywords" content="coaching, institute, education, online classes, offline classes, academic success">
+    <meta name="author" content="Foundation for Success">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--template title-->
+    <title>Foundation for Success - Premier Coaching Institute</title>
+
+    <!--==========Favicon==========-->
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://drive.google.com/uc?export=view&id=1RcDtyW_GkM0eH0x2racfHMZYdQnV6Sdl">
+
+    <!--========== Theme Fonts ==========-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #000;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Color Variables */
+        :root {
+            --primary-blue: #0047AB;
+            --white: #FFFFFF;
+            --red: #D32F2F;
+            --black: #000000;
+            --light-gray: #f8f9fa;
+            --medium-gray: #6c757d;
+        }
+
+        /* Preloader */
+        .loader_bg {
+            position: fixed;
+            z-index: 9999999;
+            background: var(--primary-blue);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader {
+            height: 60px;
+            width: 60px;
+            border: 4px solid var(--white);
+            border-top: 4px solid var(--red);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Navigation - UPDATED WITH LOGO FIX */
+        .nav-area {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            height: 80px;
+            /* Fixed navbar height */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            /* Removed vertical padding */
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 80px;
+            /* Match navbar height */
+            position: relative;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            position: relative;
+            z-index: 1001;
+            /* Ensure logo stays above other elements */
+        }
+
+        .logo-img {
+            height: 60px;
+            /* Larger than navbar height */
+            width: auto;
+            /* Make it perfectly circular */
+            /* Ensure circular shape */
+            object-fit: cover;
+            /* Maintain aspect ratio */
+
+            margin-right: 10px;
+            /* The logo will extend above and below the navbar naturally */
+        }
+
+        .logo {
+            margin-left: 10px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: rgb(41, 42, 42);
+            white-space: nowrap;
+            /* Prevent text wrapping */
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            /* Reset any default margins */
+            padding: 0;
+            /* Reset any default padding */
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 10px 0;
+            /* Add some vertical padding for better click area */
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-blue);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1002;
+            /* Ensure hamburger stays above logo */
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-blue);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section - UPDATED */
+        .hero-section {
+            background: white;
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 20px;
+            /* Account for fixed navbar height */
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--primary-blue), var(--red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero-text .highlight {
+            color: var(--red);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--red), #ff6b6b);
+            color: var(--white);
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 25px rgba(211, 47, 47, 0.3);
+            animation: slideInLeft 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            background: #b71c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(211, 47, 47, 0.4);
+        }
+
+        .hero-image {
+            text-align: center;
+            position: relative;
+        }
+
+        .image-carousel {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            /* Set a fixed height */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel-image.active {
+            opacity: 1;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: var(--white);
+            transform: scale(1.2);
+        }
+
+        .indicator:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .image-carousel {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-carousel {
+                height: 250px;
+            }
+        }
+
+        .admission-notice {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--red);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+/* Fix for contact info text overflow */
+.contact-item p {
+    color: var(--medium-gray);
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.6;
+}
+
+/* Specific fix for email addresses */
+.contact-info .contact-item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+    max-width: 100%;
+}
+
+/* Mobile specific fixes */
+@media (max-width: 768px) {
+    .contact-info .contact-item p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    .contact-info .contact-item {
+        padding: 1.2rem;
+        min-width: 0; /* Important for flex items */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info .contact-item p {
+        font-size: 0.85rem;
+    }
+    
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-section {
+    background: linear-gradient(-45deg, 
+        rgba(0, 71, 171, 0.12), 
+        rgba(255, 255, 255, 0.6), 
+        rgba(0, 71, 171, 0.18), 
+        rgba(255, 255, 255, 0.8),
+        rgba(0, 71, 171, 0.15),
+        rgba(255, 255, 255, 0.5)
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 25% 25%, rgba(0, 71, 171, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
+                radial-gradient(circle at 50% 10%, rgba(0, 71, 171, 0.04) 0%, transparent 40%);
+    animation: patternMove 25s linear infinite;
+    pointer-events: none;
+}
+/* Add floating particles for about section */
+.about-section .floating-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.about-section .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(0, 71, 171, 0.4);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(0, 71, 171, 0.3);
+}
+
+.about-section .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+.about-section .particle:nth-child(2) { left: 20%; top: 60%; animation-delay: 1.5s; }
+.about-section .particle:nth-child(3) { left: 40%; top: 30%; animation-delay: 3s; }
+.about-section .particle:nth-child(4) { left: 60%; top: 70%; animation-delay: 4.5s; }
+.about-section .particle:nth-child(5) { left: 80%; top: 40%; animation-delay: 6s; }
+.about-section .particle:nth-child(6) { left: 70%; top: 15%; animation-delay: 1s; }
+.about-section .particle:nth-child(7) { left: 30%; top: 80%; animation-delay: 2.5s; }
+
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px) translateX(0px) scale(1);
+        opacity: 0.7;
+    }
+    25% { 
+        transform: translateY(-25px) translateX(15px) scale(1.1);
+        opacity: 1;
+    }
+    50% { 
+        transform: translateY(-50px) translateX(-10px) scale(0.9);
+        opacity: 0.8;
+    }
+    75% { 
+        transform: translateY(-25px) translateX(-15px) scale(1.05);
+        opacity: 1;
+    }
+}
+/* Add a subtle overlay pattern */
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 25% 25%, rgba(0, 71, 171, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.8) 0%, transparent 50%);
+    animation: patternMove 20s linear infinite;
+    pointer-events: none;
+}
+
+/* Keyframe animations */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes patternMove {
+    0% {
+        transform: translateX(-50px) translateY(-50px);
+    }
+    100% {
+        transform: translateX(50px) translateY(50px);
+    }
+}
+
+/* Ensure content stays above the background */
+.about-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--medium-gray);
+        }
+
+        .about-features {
+            list-style: none;
+        }
+
+        .about-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .about-features li:before {
+            content: "✓";
+            color: var(--red);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--primary-blue);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card.offline {
+            border-top-color: var(--red);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .service-card.offline .service-icon {
+            color: var(--red);
+        }
+
+        .service-card h3 {
+            color: var(--black);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            color: var(--medium-gray);
+        }
+
+        .service-features li:before {
+            content: "→";
+            color: var(--primary-blue);
+            margin-right: 10px;
+        }
+
+        /* Results Section */
+        .results-section {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .results-section .section-header h2 {
+            color: var(--white);
+        }
+
+        .results-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tab-button {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button.active,
+        .tab-button:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .result-card {
+            background: var(--white);
+            color: var(--black);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .result-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .result-card h4 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .percentage {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--red);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: var(--light-gray);
+        }
+
+        .testimonial-carousel {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: none;
+        }
+
+        .testimonial.active {
+            display: block;
+        }
+
+        .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--medium-gray);
+        }
+
+        .testimonial h4 {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--medium-gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--primary-blue);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--black);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+            /* Add this CSS to your existing styles for the Contact section */
+
+/* Contact Section with Moving Gradient Background - Enhanced Visibility */
+#contact.section {
+    background: linear-gradient(-45deg, 
+        rgba(0, 71, 171, 0.15), 
+        rgba(255, 255, 255, 0.6), 
+        rgba(0, 71, 171, 0.25), 
+        rgba(255, 255, 255, 0.7),
+        rgba(0, 71, 171, 0.18),
+        rgba(255, 255, 255, 0.5),
+        rgba(0, 71, 171, 0.12),
+        rgba(255, 255, 255, 0.8)
+    );
+    background-size: 400% 400%;
+    animation: contactGradientShift 15s ease infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add a subtle overlay pattern for contact - Enhanced */
+#contact.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 40%, rgba(0, 71, 171, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
+                radial-gradient(circle at 90% 20%, rgba(0, 71, 171, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(0, 71, 171, 0.04) 0%, transparent 60%);
+    animation: contactPatternMove 25s linear infinite;
+    pointer-events: none;
+}
+
+/* Keyframe animations for contact */
+@keyframes contactGradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes contactPatternMove {
+    0% {
+        transform: translateX(-30px) translateY(-30px) rotate(0deg);
+    }
+    50% {
+        transform: translateX(30px) translateY(30px) rotate(180deg);
+    }
+    100% {
+        transform: translateX(-30px) translateY(-30px) rotate(360deg);
+    }
+}
+
+/* Ensure content stays above the background */
+#contact .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Add floating particles for contact section */
+#contact .floating-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#contact .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(0, 71, 171, 0.4);
+    border-radius: 50%;
+    animation: contactFloat 8s ease-in-out infinite;
+    box-shadow: 0 0 6px rgba(0, 71, 171, 0.3);
+}
+
+/* Different positions and delays for contact particles */
+#contact .particle:nth-child(1) { left: 15%; top: 20%; animation-delay: 0s; }
+#contact .particle:nth-child(2) { left: 25%; top: 60%; animation-delay: 1.5s; }
+#contact .particle:nth-child(3) { left: 45%; top: 30%; animation-delay: 3s; }
+#contact .particle:nth-child(4) { left: 65%; top: 70%; animation-delay: 4.5s; }
+#contact .particle:nth-child(5) { left: 85%; top: 40%; animation-delay: 6s; }
+#contact .particle:nth-child(6) { left: 75%; top: 15%; animation-delay: 1s; }
+#contact .particle:nth-child(7) { left: 35%; top: 80%; animation-delay: 2.5s; }
+#contact .particle:nth-child(8) { left: 55%; top: 50%; animation-delay: 4s; }
+#contact .particle:nth-child(9) { left: 95%; top: 65%; animation-delay: 5.5s; }
+#contact .particle:nth-child(10) { left: 5%; top: 45%; animation-delay: 7s; }
+
+@keyframes contactFloat {
+    0%, 100% { 
+        transform: translateY(0px) translateX(0px) scale(1);
+        opacity: 0.6;
+    }
+    25% { 
+        transform: translateY(-25px) translateX(15px) scale(1.1);
+        opacity: 1;
+    }
+    50% { 
+        transform: translateY(-50px) translateX(-10px) scale(0.9);
+        opacity: 0.8;
+    }
+    75% { 
+        transform: translateY(-25px) translateX(-15px) scale(1.05);
+        opacity: 1;
+    }
+}
+
+/* Enhanced contact form styling with the background */
+.contact-form {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+}
+
+/* Enhanced contact info cards */
+.contact-info .contact-item {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 3;
+}
+
+.contact-info .contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 71, 171, 0.15);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Alternative lighter version for contact */
+#contact.section.light-version {
+    background: linear-gradient(-45deg, 
+        rgba(0, 71, 171, 0.08), 
+        rgba(255, 255, 255, 0.85), 
+        rgba(0, 71, 171, 0.12), 
+        rgba(255, 255, 255, 0.9),
+        rgba(0, 71, 171, 0.06),
+        rgba(255, 255, 255, 0.95)
+    );
+    background-size: 350% 350%;
+    animation: contactGradientShift 20s ease infinite;
+}
+
+/* Mobile optimization for contact */
+@media (max-width: 768px) {
+    #contact.section {
+        background-size: 200% 200%;
+        animation-duration: 12s;
+    }
+    
+    #contact.section::before {
+        animation-duration: 18s;
+    }
+    
+    #contact .particle {
+        width: 2px;
+        height: 2px;
+        animation-duration: 6s;
+    }
+    
+    .contact-form {
+        padding: 1rem;
+        margin: 0 1rem;
+        backdrop-filter: blur(5px);
+    }
+    
+    .contact-info .contact-item {
+        backdrop-filter: blur(5px);
+    }
+}
+
+/* Ensure Google Maps container also has glass effect */
+#contact .container > div:last-child {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 3;
+}
+        /* Contact Info */
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h4 {
+            color: var(--black);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            color: var(--medium-gray);
+        }
+        
+
+        .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--white);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--red);
+    transform: translateY(-2px);
+}
+
+        /* Footer */
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design - UPDATED */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                /* Match navbar height */
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            /* Adjust logo size for mobile */
+            .logo-img {
+                height: 60px;
+                width: 60px;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .results-tabs {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+
+            .admission-notice {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 1rem 0;
+            }
+        }
+
+        /* Smooth Scrolling Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hidden class for tab content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+        .contact-form {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Increased max-width */
+    margin: 0 auto;
+    overflow: hidden; /* Prevent overflow */
+}
+
+.form-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.google-form-iframe {
+    width: 100%;
+    height: 800px;
+    border: none;
+    border-radius: 8px;
+    display: block;
+    max-width: 100%;
+}
+
+/* Mobile responsiveness for the form */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 1rem;
+        margin: 0 1rem;
+        max-width: calc(100% - 2rem);
+    }
+    
+    .google-form-iframe {
+        height: 900px; /* Increase height on mobile for better visibility */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form {
+        padding: 0.5rem;
+        margin: 0 0.5rem;
+        max-width: calc(100% - 1rem);
+    }
+    
+    .google-form-iframe {
+        height: 1000px; /* Further increase for very small screens */
+    }
+}
+
+/* Ensure the container section also has proper responsive design */
+#contact .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2%;
+}
+
+@media (max-width: 768px) {
+    #contact .container {
+        padding: 0 1%;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="loader_bg">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="nav-area">
+        <nav class="navbar">
+            <a href="#home" class="navbar-brand">
+                <img src="logo.png" alt="Foundation for Success Logo" class="logo-img">
+                <div class="brand-divider" style="height: 30px; width: 1px; background-color: #ddd;"></div>
+                <span class="logo">Foundation for Success</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <!-- <div class="admission-notice">
+            <i class="fas fa-bell"></i> Admissions Open for 2025!
+        </div> -->
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Building Tomorrow's <span class="highlight">Leaders</span> Today</h1>
+                <p style="color: #444;">At Foundation for Success, we believe every student has the potential to excel.
+                    Our comprehensive coaching programs are designed to unlock that potential and pave the way for
+                    academic excellence and personal growth.</p>
+                <a href="#contact" class="cta-button">
+                    <i class="fas fa-rocket"></i> Start Your Journey
+                </a>
+            </div>
+            <div class="hero-image">
+                <div class="image-carousel">
+                    <img src="5.jpg" class="carousel-image active">
+                    <img src="2.jpg"
+                        alt="Students Learning" class="carousel-image">
+                    <img src="https://img.freepik.com/free-photo/two-young-girls-study-home_641386-339.jpg"
+                        alt="Students Learning" class="carousel-image">
+                    
+                    <img src="https://img.freepik.com/free-photo/medium-shot-boy-drawing_23-2148888845.jpg?semt=ais_hybrid&w=740"
+                        class="carousel-image">
+                    <img src="3.jpg" alt="Study Environment" class="carousel-image">
+                    <img src="4.jpg" alt="Academic Success" class="carousel-image">
+                </div>
+            </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="floating-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>About Foundation for Success</h2>
+                <p>Empowering students with knowledge to achieve their dreams</p>
+            </div>
+            <div class="about-content fade-in">
+                <div class="about-text">
+                    <h3>Our Vision</h3>
+                    <p>To be the leading educational institution that transforms students into confident, knowledgeable,
+                        and successful individuals who contribute positively to society.</p>
+
+                    <h3>Our Mission</h3>
+                    <p>We are committed to providing high-quality education through innovative teaching methods,
+                        personalized attention, and a nurturing environment that fosters academic excellence and
+                        character development.</p>
+
+                    <ul class="about-features">
+                        <li>Experienced and Dedicated Faculty</li>
+                        <li>Personalized Learning Approach</li>
+                        <li>Regular Assessment and Feedback</li>
+                        <li>Modern Teaching Methodology</li>
+                        <li>Safe and Supportive Environment</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="https://st3.depositphotos.com/1809585/19135/i/450/depositphotos_191350230-stock-photo-proud-student-showing-approved-exam.jpg"
+                        alt="Teaching Excellence" style="width: 100%; border-radius: 10px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Our Services</h2>
+                <p>Comprehensive learning solutions tailored to meet diverse educational needs</p>
+            </div>
+            <div class="services-grid fade-in">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Online Classes</h3>
+                    <ul class="service-features">
+                        <li>Available for both boys and girls</li>
+                        <li>Flexible timing options</li>
+                        <li>All subjects covered</li>
+                        <li>Interactive virtual classrooms</li>
+                        <li>Recorded sessions for revision</li>
+                        <li>Digital study materials</li>
+                        <li>24/7 doubt clearing support</li>
+                        <li>Regular online assessments</li>
+                    </ul>
+                </div>
+                <div class="service-card offline">
+                    <div class="service-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Offline Classes</h3>
+                    <ul class="service-features">
+                        <li>Exclusively for girls (Class 6th to 12th)</li>
+                        <li>Safe and secure environment</li>
+                        <li>Small batch sizes for personal attention</li>
+                        <li>Modern classroom facilities</li>
+                        <li>Regular parent-teacher meetings</li>
+                        <li>Comprehensive study materials</li>
+                        <li>Library and self-study areas</li>
+                        <li>Career guidance and counseling</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Results Section -->
+    <section id="results" class="section results-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Our Success Stories</h2>
+                <p style="color: #FFFFFF;">Celebrating the achievements of our brilliant students</p>
+            </div>
+            <div class="results-tabs fade-in">
+                <button class="tab-button active" onclick="showResults('2024-25')">2024-25</button>
+                <button class="tab-button" onclick="showResults('2023-24')">2023-24</button>
+                <button class="tab-button" onclick="showResults('2022-23')">2022-23</button>
+                <button class="tab-button" onclick="showResults('2021-22')">2021-22</button>
+                <button class="tab-button" onclick="showResults('2019-20')">2019-20</button>
+                <button class="tab-button" onclick="showResults('2017-18')">2018-19</button>
+                <button class="tab-button" onclick="showResults('2016-17')">2017-18</button>
+            </div>
+
+            <div id="results-2024-25" class="tab-content active">
+                <div class="results-grid">
+                    <div class="result-card">
+                        <img src="Sumaiyya.jpg"
+                            alt="Sumaiyya">
+                        <h4>Sumaiyya</h4>
+                        <div class="percentage">100/100</div>
+                        <p>CBSE Class 12th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="Sumaiya Shehzadi.jpg"
+                            alt="Sumaiya Shehzadi">
+                        <h4>Sumaiya Shehzadi</h4>
+                        <div class="percentage">91/100</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Arzish">
+                        <h4>Arzish</h4>
+                        <div class="percentage">89/100</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Isha">
+                        <h4>Isha</h4>
+                        <div class="percentage">87/100</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="Aisha Mariyam.jpg"
+                            alt="Aisha mariyam">
+                        <h4>Aisha Mariyam</h4>
+                        <div class="percentage">87/100</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="Insha javed .jpg"
+                            alt="Insha Javed">
+                        <h4>Insha Javed</h4>
+                        <div class="percentage">84/100</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Aisha Ali">
+                        <h4>Aisha Ali</h4>
+                        <div class="percentage">84/100</div>
+                        <p>CBSE Class 12th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="Mariyam irfan.png"
+                            alt="Mariyam Irfan">
+                        <h4>Mariyam Irfan</h4>
+                        <div class="percentage">84/100</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Zoya">
+                        <h4>Zoya</h4>
+                        <div class="percentage">82/100</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="results-2023-24" class="tab-content">
+                <div class="results-grid">
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Asba">
+                        <h4>Asba</h4>
+                        <div class="percentage">93%</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Zunairah">
+                        <h4>Zunairah</h4>
+                        <div class="percentage">93%</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Raifa">
+                        <h4>Raifa</h4>
+                        <div class="percentage">92%</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Rida">
+                        <h4>Rida</h4>
+                        <div class="percentage">91.8%</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Hiba Ali">
+                        <h4>Hiba Ali</h4>
+                        <div class="percentage">89%</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Sarah">
+                        <h4>Sarah</h4>
+                        <div class="percentage">85%</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Afiya">
+                        <h4>Afiya</h4>
+                        <div class="percentage">85%</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Sakha">
+                        <h4>Sakha</h4>
+                        <div class="percentage">81.8%</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Hiba">
+                        <h4>Hiba</h4>
+                        <div class="percentage">80%</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional years data follows same pattern -->
+            <div id="results-2022-23" class="tab-content">
+                <div class="results-grid">
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Shifa Maryiam">
+                        <h4>Shifa Maryiam</h4>
+                        <div class="percentage">Maths-95 <br> Science-98</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <!-- More result cards for 2022-23 -->
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Areeba Shah">
+                        <h4>Areeba Shah</h4>
+                        <div class="percentage">Maths-92 <br> Science-94</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Nabeeha Akhtar">
+                        <h4>Nabeeha Akhtar</h4>
+                        <div class="percentage">Maths-92 <br> Science-89</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Sara Anwar">
+                        <h4>Sara Anwar</h4>
+                        <div class="percentage">Maths-89 <br> Science-95</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Mishquat">
+                        <h4>Mishquat</h4>
+                        <div class="percentage">Maths-83 <br> Science-94</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continue with other years... -->
+            <div id="results-2021-22" class="tab-content">
+                <div class="results-grid">
+                    <!-- 2021-22 results -->
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Anusha Amir">
+                        <h4>Anusha Amir</h4>
+                        <div class="percentage">Maths-99 <br> Science-95</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Afifa Tanzeel">
+                        <h4>Afifa Tanzeel</h4>
+                        <div class="percentage">Maths-81 <br> Science-90</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Kashifa Hasnain">
+                        <h4>Kashifa Hasnain</h4>
+                        <div class="percentage">Maths-82 <br> Science-92</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div id="results-2019-20" class="tab-content">
+                <div class="results-grid">
+                    <!-- 2019-20 results -->
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Hamda Arshad">
+                        <h4>Hamda Arshad</h4>
+                        <div class="percentage">Maths-100 <br> Science-100</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Amatullah Bint Ehsan">
+                        <h4>Amatullah Bint Ehsan</h4>
+                        <div class="percentage">Maths-98 <br> Science-96</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Hafsa Masood">
+                        <h4>Hafsa Masood</h4>
+                        <div class="percentage">Maths-97 <br> Science-94</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Insha Naaz">
+                        <h4>Insha Naaz</h4>
+                        <div class="percentage">Maths-96 <br> Science-94</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Tarab Ara Khan">
+                        <h4>Tarab Ara Khan</h4>
+                        <div class="percentage">Maths-96 <br> Science-91</div>
+                        <p>CBSE Class 12th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Zabeeba Naaz">
+                        <h4>Zabeeba Naaz</h4>
+                        <div class="percentage">Maths-91 <br> Science-78</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Aatika Rehman">
+                        <h4>Aatika Rehman</h4>
+                        <div class="percentage">Maths-84 <br> Science-83</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                     <div class="result-card">
+                        <img src="default.png"
+                            alt="Hadia Khan">
+                        <h4>Hadia Khan</h4>
+                        <div class="percentage">Maths-88 <br> Science-89</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Tuba Fatima">
+                        <h4>Tuba Fatima</h4>
+                        <div class="percentage">Maths-87 <br> Science-77</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="results-2017-18" class="tab-content">
+                <div class="results-grid">
+                    <!-- 2017-18 results -->
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Aiman Tanwir">
+                        <h4>Aiman Tanwir</h4>
+                        <div class="percentage">Maths-98 <br> Science-96</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Hafsa Fahad">
+                        <h4>Hafsa Fahad</h4>
+                        <div class="percentage">Maths-98 <br> Science-94</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Anamta Rehman">
+                        <h4>Anamta Rehman</h4>
+                        <div class="percentage">Maths-95 <br> Science-91</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Mehrukh Firdaus">
+                        <h4>Mehrukh Firdaus</h4>
+                        <div class="percentage">Maths-94 <br> Science-95</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Ayesha Firdaus">
+                        <h4>Ayesha Firdaus</h4>
+                        <div class="percentage">Maths-94 <br> Science-92</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Zaib Mirza">
+                        <h4>Zaib Mirza</h4>
+                        <div class="percentage">Maths-94 <br> Science-85</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Sania Samar">
+                        <h4>Sania Samar</h4>
+                        <div class="percentage">Maths-93 <br> Science-93</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Zaib Mirza">
+                        <h4>Shafia</h4>
+                        <div class="percentage">Maths-93 <br> Science-92</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Sumaiyya">
+                        <h4>Sania Samar</h4>
+                        <div class="percentage">Maths-93</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="results-2016-17" class="tab-content">
+                <div class="results-grid">
+                    <!-- 2016-17 results -->
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Khadija Firdaus">
+                        <h4>Khadija Firdaus</h4>
+                        <div class="percentage">Maths-95 <br> Science-99</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Sidra Naaz">
+                        <h4>Sidra Naaz</h4>
+                        <div class="percentage">Maths-91 <br> Science-93</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Atoofa Naaz">
+                        <h4>Atoofa Naaz</h4>
+                        <div class="percentage">Maths-97 <br> Science-82</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="A Khan">
+                        <h4>A Khan</h4>
+                        <div class="percentage">Maths-96 <br> Science-93</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+                    <div class="result-card">
+                        <img src="default.png"
+                            alt="Eva">
+                        <h4>Eva</h4>
+                        <div class="percentage">Maths-93</div>
+                        <p>CBSE Class 10th</p>
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section testimonials-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>What Our Students Say</h2>
+                <p>Hear from our successful students about their transformative journey with us</p>
+            </div>
+            <div class="testimonial-carousel fade-in">
+                <div class="testimonial active">
+                    <img src="Sumaiyya.jpg"
+                        alt="Student">
+                    <p>"Foundation for Success transformed my academic journey completely. The personalized attention
+                        and excellent teaching methodology helped me achieve 96% in my boards. I'm forever grateful to
+                        all my teachers."</p>
+                    <h4>Sumaiyya - Class 12th 2024-25</h4>
+                </div>
+                <div class="testimonial">
+                    <img src="default.png"
+                        alt="Student">
+                    <p>"The online classes were incredibly interactive and flexible. I could balance my studies with
+                        other activities seamlessly. The doubt-clearing sessions were particularly helpful."</p>
+                    <h4>Hadia - Offline Student</h4>
+                </div>
+                <div class="testimonial">
+                    <img src="default.png"
+                        alt="Student">
+                    <p>"The safe and supportive environment for girls made me feel confident and focused on my studies.
+                        The teachers are not just educators but mentors who care about our overall development."</p>
+                    <h4>Atoofa Naaz - Offline Student</h4>
+                </div>
+                <div class="testimonial">
+                    <img src="default.png"
+                        alt="Student">
+                    <p>"The comprehensive study materials and regular assessments kept me on track. The career guidance
+                        sessions helped me choose the right path for my future."</p>
+                    <h4>Anamta - Class 10th 2018-19</h4>
+                </div>
+                <div class="testimonial">
+                    <img src="default.png"
+                        alt="Student">
+                    <p>"Small batch sizes meant individual attention from teachers. Every doubt was cleared immediately,
+                        and the learning environment was highly motivating."</p>
+                    <h4>Zaib Mirza - Class 10th 2018-19</h4>
+                </div>
+                <div class="testimonial">
+                    <img src="default.png"
+                        alt="Student">
+                    <p>"The modern teaching methods and use of technology made learning fun and effective. I never felt
+                        bored in any class and always looked forward to attending."</p>
+                    <h4>Sidra - Class 10th 2017-18</h4>
+                </div>
+                <div class="testimonial">
+                    <img src="default.png"
+                        alt="Student">
+                    <p>"The parent-teacher interaction was excellent. My parents were always updated about my progress,
+                        which created a supportive ecosystem for my learning."</p>
+                    <h4>Ayesha Firdaus - Class 10th 2018-19</h4>
+                </div>
+                <div class="testimonial">
+                    <img src="default.png"
+                        alt="Student">
+                    <p>"From weak in mathematics to scoring 95%, Foundation for Success made the impossible possible.
+                        The patient and dedicated teachers never gave up on me."</p>
+                    <h4>Hadia Khan - Class 10th 2019-20</h4>
+                </div>
+                <div class="testimonial">
+                    <img src="default.png"
+                        alt="Student">
+                    <p>"The library and self-study areas provided a perfect environment for focused learning. The
+                        infrastructure and facilities are top-notch."</p>
+                    <h4>Mariyam irfan - Class 10th 2024-25</h4>
+                </div>
+                <div class="testimonial">
+                    <img src="default.png"
+                        alt="Student">
+                    <p>"Beyond academics, the institute helped shape my personality and confidence. The co-curricular
+                        activities and leadership opportunities were amazing."</p>
+                    <h4>Sara Anwar - Class 10th 2022-23</h4>
+                </div>
+            </div>
+            <div class="carousel-dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(6)"></span>
+                <span class="dot" onclick="currentSlide(7)"></span>
+                <span class="dot" onclick="currentSlide(8)"></span>
+                <span class="dot" onclick="currentSlide(9)"></span>
+                <span class="dot" onclick="currentSlide(10)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Get In Touch</h2>
+                <p>Ready to start your success journey? Contact us for admission inquiries or book a demo class</p>
+            </div>
+
+            <div class="contact-form fade-in">
+    <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary-blue);">Book a Demo Class /
+        Admission Inquiry</h3>
+    
+    <!-- Fixed Google Form Embed -->
+    <div class="form-container">
+        <iframe 
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfBjBnIRuzOpsio3mhlSIZWutrNQ7GD2GrdU_7W2TRI3andnw/viewform?embedded=true" 
+            class="google-form-iframe"
+            frameborder="0" 
+            marginheight="0" 
+            marginwidth="0">
+            Loading…
+        </iframe>
+    </div>
+</div>
+
+            <div class="contact-info fade-in">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Our Location</h4>
+                    <p>D2 opposite RWA office<br>
+                        Abul fazal Enclave-1 Okhla,<br>Delhi-110025</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h4>Call Us</h4>
+                    <p>+91 9821921095 <br> +91 8178478235</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Email Us</h4>
+                    <p>Foundationforsuccess6@gmail.com<br>Foundationforsuccess106@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <h4>Office Hours</h4>
+                    <p>Mon - Sat: 9:00 AM - 7:00 PM<br>Sunday: 10:00 AM - 4:00 PM</p>
+                </div>
+            </div>
+
+            <div class="contact-item" style="text-align: center; margin-top: 2rem;">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/14qScvERod/ " target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/foundation.for.success?igsh=eHpjcHJyaGxqcmdy" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Google Map Embed -->
+            <div style="margin-top: 3rem; text-align: center;">
+                <h4 style="color: var(--primary-blue); margin-bottom: 1rem;">Find Us Here</h4>
+                <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7011.855695515989!2d77.2892467!3d28.5577592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce40b63679531%3A0x2a69363cfb445feb!2sFoundation%20For%20Success!5e0!3m2!1sen!2sin!4v1703123456789!5m2!1sen!2sin"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                <div>
+                    <h4 style="margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--white), #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.3rem;">Foundation for Success</h4>
+                    <p style="color: #ccc;">Empowering students with knowledge, skills, and confidence to achieve their
+                        dreams and build a successful future.</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1rem; color: var(--white);">Quick Links</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.5rem;"><a href="#home"
+                                style="color: #ccc; text-decoration: none;">Home</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#about"
+                                style="color: #ccc; text-decoration: none;">About Us</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#services"
+                                style="color: #ccc; text-decoration: none;">Our Services</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#results"
+                                style="color: #ccc; text-decoration: none;">Results</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#contact"
+                                style="color: #ccc; text-decoration: none;">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1rem; color: var(--white);">Our Programs</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.5rem; color: #ccc;">Online Classes (Boys & Girls)</li>
+                        <li style="margin-bottom: 0.5rem; color: #ccc;">Offline Classes (Girls Only)</li>
+                        <li style="margin-bottom: 0.5rem; color: #ccc;">Class 6th to 12th</li>
+                        <li style="margin-bottom: 0.5rem; color: #ccc;">All Subjects</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1rem; color: var(--white);">Contact Info</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.5rem; color: #ccc;"><i class="fas fa-phone"
+                                style="margin-right: 10px;"></i>+91 98765 43210</li>
+                        <li style="margin-bottom: 0.5rem; color: #ccc;"><i class="fas fa-envelope"
+                                style="margin-right: 10px;"></i>Foundationforsuccess6@gmail.com <br>Foundationforsuccess106@gmail.com</li>
+                        <li style="margin-bottom: 0.5rem; color: #ccc;"><i class="fas fa-map-marker-alt"
+                                style="margin-right: 10px;"></i>D2 opposite RWA office
+Abul fazal Enclave-1 Okhla,
+Delhi-110025</li>
+                    </ul>
+                </div>
+            </div>
+            <hr style="border-color: #444; margin: 2rem 0;">
+            <p style="text-align: center; color: #ccc;">© 2025 Foundation for Success. All Rights Reserved. | Designed with ❤️ for Education by <a href="https://www.linkedin.com/in/anamtarehman/" target="_blank" class="designer-link">Anamta</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const images = document.querySelectorAll('.carousel-image');
+            const indicators = document.querySelectorAll('.indicator');
+            let currentImageIndex = 0;
+            let carouselInterval;
+
+            // Function to show specific image
+            function showImage(index) {
+                // Hide all images
+                images.forEach(img => img.classList.remove('active'));
+                indicators.forEach(indicator => indicator.classList.remove('active'));
+
+                // Show current image
+                images[index].classList.add('active');
+                indicators[index].classList.add('active');
+
+                currentImageIndex = index;
+            }
+
+            // Function to go to next image
+            function nextImage() {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                showImage(currentImageIndex);
+            }
+
+            // Start automatic carousel
+            function startCarousel() {
+                carouselInterval = setInterval(nextImage, 4000); // 2 seconds delay
+            }
+
+            // Stop automatic carousel
+            function stopCarousel() {
+                clearInterval(carouselInterval);
+            }
+
+            // Add click handlers to indicators
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', function () {
+                    stopCarousel();
+                    showImage(index);
+                    startCarousel(); // Restart after manual selection
+                });
+            });
+
+            // Pause carousel on hover
+            const carouselContainer = document.querySelector('.image-carousel');
+            if (carouselContainer) {
+                carouselContainer.addEventListener('mouseenter', stopCarousel);
+                carouselContainer.addEventListener('mouseleave', startCarousel);
+            }
+
+            // Start the carousel
+            startCarousel();
+
+            // Optional: Pause carousel when page is not visible
+            document.addEventListener('visibilitychange', function () {
+                if (document.hidden) {
+                    stopCarousel();
+                } else {
+                    startCarousel();
+                }
+            });
+        });
+        // Preloader
+        window.addEventListener('load', function () {
+            document.querySelector('.loader_bg').style.display = 'none';
+        });
+
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', function () {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function () {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation link highlighting
+        window.addEventListener('scroll', function () {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Results tab functionality
+        function showResults(session) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById('results-' + session).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Testimonial carousel functionality
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.dot');
+
+        function showTestimonial(n) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            if (n >= testimonials.length) currentTestimonial = 0;
+            if (n < 0) currentTestimonial = testimonials.length - 1;
+
+            testimonials[currentTestimonial].classList.add('active');
+            dots[currentTestimonial].classList.add('active');
+        }
+
+        function currentSlide(n) {
+            currentTestimonial = n - 1;
+            showTestimonial(currentTestimonial);
+        }
+
+        // Auto-play testimonials
+        setInterval(function () {
+            currentTestimonial++;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            let emailBody = 'New Inquiry from Foundation for Success Website:\n\n';
+
+            for (let [key, value] of formData.entries()) {
+                emailBody += `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}\n`;
+            }
+
+            const mailtoLink = `mailto:anamtarehman987@gmail.com?subject=New Inquiry - Foundation for Success&body=${encodeURIComponent(emailBody)}`;
+            window.location.href = mailtoLink;
+
+            // Show success message
+            alert('Thank you for your inquiry! Your default email client will open to send the message.');
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.nav-area');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.background = 'var(--white)';
+                navbar.style.backdropFilter = 'none';
+            }
+        });
+
+        // Particles.js configuration (simple animated background)
+        function createParticles() {
+            const particlesContainer = document.querySelector('.hero-section');
+
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = '2px';
+                particle.style.height = '2px';
+                particle.style.background = 'rgba(255, 255, 255, 0.5)';
+                particle.style.borderRadius = '50%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animation = `float ${3 + Math.random() * 4}s ease-in-out infinite`;
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Add floating animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+                50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize particles
+        createParticles();
+
+        // Number counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent);
+                const increment = target / 200;
+                let current = 0;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    counter.textContent = Math.floor(current);
+
+                    if (current >= target) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    }
+                }, 10);
+            });
+        }
+
+        // Trigger counter animation when section is visible
+        const statsSection = document.querySelector('.results-section');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+</body>
+
+</html>
